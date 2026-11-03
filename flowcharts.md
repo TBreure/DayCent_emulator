@@ -13,7 +13,7 @@ drop-in or redrawing in PowerPoint.
 flowchart LR
     subgraph Before["Before: publication scripts"]
         A1[R preprocessing]
-        A2[Python RNN notebook + script]
+        A2[Python RNN notebook (GPU) + script (CPU)]
         A3[Sensitivity script]
         A1 -.manual.-> A2 -.manual.-> A3
     end
@@ -33,10 +33,10 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    H1["Human: goal +<br/>scientific constraints"] --> AG["Agent: read code,<br/>implement, write tests"]
+    H1["Researcher: goal +<br/>scientific constraints"] --> AG["KIRO: read code,<br/>implement, write tests"]
     AG --> V{"Tests &<br/>diagnostics<br/>pass?"}
     V -- no --> AG
-    V -- yes --> H2["Human: inspect outputs,<br/>apply domain judgement"]
+    V -- yes --> H2["Researcher: inspect outputs,<br/>apply domain judgement"]
     H2 -- "refine intent" --> AG
     H2 -- "accept" --> DONE["Tested, documented<br/>option shipped"]
 ```
@@ -50,7 +50,7 @@ flowchart LR
     R[(Raster stacks)] --> H[Harmonize]
     H --> D[Dataset builder]
     D --> S[Scale]
-    S --> M[cRNN_bidir<br/>verbatim]
+    S --> M[conditional recurrent neural network]
     M --> T[Train + predict]
     T --> SE[Sensitivity]
     T --> U[Uncertainty]
@@ -65,14 +65,14 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    CFG[config: select cells] --> EX["Expand cells:<br/>Scaling x Cumulative"]
-    EX --> C1[Non_scaled/Original]
-    EX --> C2[Non_scaled/Cumulative]
+    CFG[config: expansion] --> EX["Expand factorial combinations"]
+    EX --> C1[Pre-processing of emulator inputs]
+    EX --> C2[]
     EX --> C3[Scaled/Original]
     EX --> C4[Scaled/Cumulative]
     C1 & C2 & C3 & C4 --> MET[factorial_metrics.csv]
     MET --> BEST{"Pick best<br/>by metric"}
-    BEST --> DOWN["Downstream on winner<br/>(plot / sensitivity /<br/>uncertainty / xai)"]
+    BEST --> DOWN["Best performing model:<br/>(plot / sensitivity /<br/>uncertainty / xai)"]
 ```
 
 ---
@@ -81,19 +81,19 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    subgraph Agent["Agent is strong at"]
+    subgraph Agent["KIRO is strong at"]
         G1[Read/port code fast]
-        G2[Numerical parity < 1e-8]
-        G3[Write & run tests]
-        G4[Catch env traps]
-        G5[Keep docs in sync]
+        G2[Write & run tests; numerical parity]
+        G3[Catch env traps]
+        G4[Keep /specs in sync]
+        G5[]
     end
-    subgraph Human["Human is essential for"]
-        N1[Scientific intent]
-        N2[What 'faithful' means]
-        N3[Spotting subtle mismatches]
-        N4[Scoping / saying 'less']
-        N5[Accepting results]
+    subgraph Human["Researcher is essential for"]
+        N1[Scientific interpretation and ]
+        N2[Definition 'faithful']
+        N3[Spotting mismatches]
+        N4[Scoping and steering]
+        N5[Accepting results and taking responsibility]
     end
     Agent <-->|tight loop| Human
 ```
