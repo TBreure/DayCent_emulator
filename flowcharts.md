@@ -14,7 +14,7 @@ flowchart LR
     subgraph Before["Before: publication scripts"]
         A1[R preprocessing]
         A2["Python RNN notebook (GPU) + script (CPU)"]
-        A3[Sensitivity script]
+        A3[Sensitivity analysis]
         A1 -.manual.-> A2 -.manual.-> A3
     end
     subgraph After["After: one tested package"]
@@ -24,7 +24,7 @@ flowchart LR
         B1 --> B2
         B3 -. verifies .-> B2
     end
-    Before ==>|"Kiro + human"| After
+    Before ==>|"KIRO + researcher"| After
 ```
 
 ---
