@@ -83,16 +83,14 @@ flowchart LR
     subgraph Agent["KIRO is strong at"]
         G1[Read/port code fast]
         G2["Write & run tests;<br/>check numerical parity"]
-        G3[Catch env traps]
-        G4[Keep /specs in sync]
-        G5[Integration across languages and packages]
+        G3[Software engineering]
+        G4[Integration across languages and packages]
     end
     subgraph Human["Researcher is essential for"]
         N1[Scientific interpretation]
-        N2["Defining what 'faithful' means"]
-        N3[Spotting mismatches]
-        N4[Scoping and steering]
-        N5[Accepting results and taking responsibility]
+        N2[Spotting mismatches]
+        N3[Scoping and steering]
+        N4[Accepting results and taking responsibility]
     end
-    Agent <-->|tight loop| Human
+    Agent <-->|interactive| Human
 ```
