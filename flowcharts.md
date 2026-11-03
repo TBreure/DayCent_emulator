@@ -71,8 +71,7 @@ flowchart TD
     EX --> C3[Preprocessing of emulator inputs]
     EX --> C4[Model architecture]
     C1 & C2 & C3 & C4 --> MET[factorial_metrics.csv]
-    MET --> BEST{"Pick best<br/>by metric"}
-    BEST --> DOWN["Best performing model:<br/>(plot / sensitivity /<br/>uncertainty / xai)"]
+    MET --> DOWN["Best performing model:<br/>(plot / sensitivity /<br/>uncertainty / xai)"]
 ```
 
 ---
