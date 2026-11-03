@@ -13,7 +13,7 @@ drop-in or redrawing in PowerPoint.
 flowchart LR
     subgraph Before["Before: publication scripts"]
         A1[R preprocessing]
-        A2[Python RNN notebook (GPU) + script (CPU)]
+        A2["Python RNN notebook (GPU) + script (CPU)"]
         A3[Sensitivity script]
         A1 -.manual.-> A2 -.manual.-> A3
     end
@@ -83,14 +83,14 @@ flowchart TD
 flowchart LR
     subgraph Agent["KIRO is strong at"]
         G1[Read/port code fast]
-        G2[Write & run tests check for numerical parity]
+        G2["Write & run tests;<br/>check numerical parity"]
         G3[Catch env traps]
         G4[Keep /specs in sync]
         G5[Integration across languages and packages]
     end
     subgraph Human["Researcher is essential for"]
-        N1[Scientific interpretation and ]
-        N2[Definition 'faithful']
+        N1[Scientific interpretation]
+        N2["Defining what 'faithful' means"]
         N3[Spotting mismatches]
         N4[Scoping and steering]
         N5[Accepting results and taking responsibility]
