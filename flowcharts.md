@@ -49,8 +49,8 @@ flowchart LR
 flowchart LR
     R[(Raster stacks)] --> H[Harmonize]
     H --> D[Dataset builder]
-    D --> S[Scale]
-    S --> M[conditional recurrent neural network]
+    D --> S[Preprocessing]
+    S --> M[conditional RNN]
     M --> T[Train + predict]
     T --> SE[Sensitivity]
     T --> U[Uncertainty]
@@ -66,10 +66,10 @@ flowchart LR
 ```mermaid
 flowchart TD
     CFG[config: expansion] --> EX["Expand factorial combinations"]
-    EX --> C1[Pre-processing of emulator inputs]
-    EX --> C2[]
-    EX --> C3[Scaled/Original]
-    EX --> C4[Scaled/Cumulative]
+    EX --> C1[Different dependent variables: N2O, dSOC]
+    EX --> C2[Different independent variables]
+    EX --> C3[Preprocessing of emulator inputs]
+    EX --> C4[Model architecture]
     C1 & C2 & C3 & C4 --> MET[factorial_metrics.csv]
     MET --> BEST{"Pick best<br/>by metric"}
     BEST --> DOWN["Best performing model:<br/>(plot / sensitivity /<br/>uncertainty / xai)"]
@@ -83,10 +83,10 @@ flowchart TD
 flowchart LR
     subgraph Agent["KIRO is strong at"]
         G1[Read/port code fast]
-        G2[Write & run tests; numerical parity]
+        G2[Write & run tests check for numerical parity]
         G3[Catch env traps]
         G4[Keep /specs in sync]
-        G5[]
+        G5[Integration across languages and packages]
     end
     subgraph Human["Researcher is essential for"]
         N1[Scientific interpretation and ]
