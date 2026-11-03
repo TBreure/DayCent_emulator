@@ -38,7 +38,7 @@ flowchart LR
     V -- no --> AG
     V -- yes --> H2["Researcher: inspect outputs,<br/>apply domain judgement"]
     H2 -- "refine intent" --> AG
-    H2 -- "accept" --> DONE["Tested, documented<br/>option shipped"]
+    H2 -- "accept" --> DONE["Tested, documented"]
 ```
 
 ---
@@ -70,8 +70,8 @@ flowchart TD
     EX --> C2[Different independent variables]
     EX --> C3[Preprocessing of emulator inputs]
     EX --> C4[Model architecture]
-    C1 & C2 & C3 & C4 --> MET[factorial_metrics.csv]
-    MET --> DOWN["Best performing model:<br/>(plot / sensitivity /<br/>uncertainty / xai)"]
+    C1 & C2 & C3 & C4 --> MET[Prediction metrics]
+    MET --> DOWN["Best performing model:<br/>(sensitivity /<br/>uncertainty / xai)"]
 ```
 
 ---
